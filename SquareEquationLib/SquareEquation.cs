@@ -8,9 +8,9 @@ public class SquareEquation
         double eps = 1e-9;
         if((Math.Abs(a) < eps) || (Double.IsNaN(a)) || (Double.IsNegativeInfinity(a)) || (Double.IsPositiveInfinity(a)) || (Double.IsInfinity(a)) )
             throw new ArgumentException();
-        if((Double.IsNaN(b)) || (Double.IsNegativeInfinity(b)) || (Double.IsPositiveInfinity(b)) || (Double.IsInfinity(b)) )
+        if((Double.IsNaN(b)) || (Double.IsNegativeInfinity(b)) || (Double.IsPositiveInfinity(b)) || (Double.IsInfinity(b)))
             throw new ArgumentException();
-        if((Double.IsNaN(c)) || (Double.IsNegativeInfinity(c)) || (Double.IsPositiveInfinity(c)) || (Double.IsInfinity(c)) )
+        if((Double.IsNaN(c)) || (Double.IsNegativeInfinity(c)) || (Double.IsPositiveInfinity(c)) || (Double.IsInfinity(c)))
             throw new ArgumentException();
         double[] Ansver = new double[] {};
         double D = (b*b) - (4 * c * a);
