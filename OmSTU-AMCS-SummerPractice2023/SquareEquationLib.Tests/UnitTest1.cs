@@ -1,9 +1,11 @@
 using Xunit;
 using SquareEquationLib;
+
 namespace SquareEquationLib.Tests
 {
     public class UnitTest1
     {
+        //Проверка на ошибку при неподходящих данных.
         [Theory]
         [InlineData(0.0 , 2.0, 3.0)]
         [InlineData(Double.NaN, 2.0, 30.0)]
@@ -30,6 +32,7 @@ namespace SquareEquationLib.Tests
             }
             Assert.True(flag);
         }
+        //проверка на корректную работу при -eps<D<0 и 0<D<eps.
         [Fact]
         public void EpsilonValues()
         {
@@ -42,6 +45,7 @@ namespace SquareEquationLib.Tests
             if(Value1.Length == 1 && Value2.Length == 1)flag = true;
             Assert.True(flag);
         }
+        //Проверка на задачи с одним корнем
         [Fact]
         public void OneSolutions()
         {
@@ -53,6 +57,7 @@ namespace SquareEquationLib.Tests
             if(Value.Length == 1)flag = true;
             Assert.True(flag);
         }
+        //Проверка на задачи без корней
         [Fact]
         public void ZeroSolutions()
         {
