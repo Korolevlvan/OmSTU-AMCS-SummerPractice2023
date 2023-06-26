@@ -19,7 +19,14 @@ public class SquareEquation
             Ansver = new double[1];
             Ansver[0] = (-b)/2;
         }
-        if(D >= eps)
+        if(eps < D)
+        {
+            Ansver = new double[2];
+            D = Math.Sqrt(D);
+            Ansver[0] = (-(b + (Math.Sign(b)*D)))/2;
+            Ansver[1] = c/Ansver[0];
+        }
+        else if(D == eps)
         {
             Ansver = new double[2];
             D = Math.Sqrt(D);

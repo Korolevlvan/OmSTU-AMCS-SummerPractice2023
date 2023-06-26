@@ -69,5 +69,29 @@ namespace SquareEquationLib.Tests
             if(Value.Length == 0)flag = true;
             Assert.True(flag);
         }
+        //Проверка на задачи с двумя корнями(D > eps)
+        [Fact]
+        public void TwoSolutions1()
+        {
+            double a = 1.0;
+            double b = -7.0;
+            double c = 10.0;
+            double[] Value = SquareEquation.Solve(a, b, c);
+            bool flag = false;
+            if(Value[0] == 5.0 && Value[1] == 2.0)flag = true;
+            Assert.True(flag);
+        }
+        //Проверка на задачи с двумя корнями(D = eps)
+        [Fact]
+        public void TwoSolutions2()
+        {
+            double a = 1.0;
+            double b = 0.0;
+            double c = -(Convert.ToDouble(1e-9)/4.0);
+            double[] Value = SquareEquation.Solve(a, b, c);
+            bool flag = false;
+            if(Value.Length == 2)flag = true;
+            Assert.True(flag);
+        }
     }
 }
