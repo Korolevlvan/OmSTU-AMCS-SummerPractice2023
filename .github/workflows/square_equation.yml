@@ -1,0 +1,28 @@
+name: square equation test
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore ./OmSTU-AMCS-SummerPractice2023/SquareEquationLib
+
+      - name: Build
+        run: dotnet build ./OmSTU-AMCS-SummerPractice2023/SquareEquationLib --no-restore /p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        run: ./SquareEquationTest ./OmSTU-AMCS-SummerPractice2023/SquareEquationLib/bin/Debug/net7.0/SquareEquationLib.dll
+
+      - name: UnitTest and Coverage
+        run: dotnet test ./OmSTU-AMCS-SummerPractice2023/spacebattletest --collect:"XPlat Code Coverage"
